@@ -1,0 +1,1339 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#E0F2FE'
+  icon_type: emoji
+  mode: workflow
+  name: 出题组卷
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.24@9e12eef09973667f0eaf4f082af883167e1de88740b22e71e71488d020c3778a
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/feishu_document:0.0.8@66f5b71ae1f987d4cf56dbabbdcf9ad5988101d66c50216424a0e351701339e0
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        knowledge_file_size_limit: 15
+        single_chunk_attachment_limit: 10
+        skill_file_size_limit: 50
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: document-extractor
+      id: 1783648450700-source-1783649108712-target
+      source: '1783648450700'
+      sourceHandle: source
+      target: '1783649108712'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: llm
+      id: 1783649108712-source-1783649146684-target
+      source: '1783649108712'
+      sourceHandle: source
+      target: '1783649146684'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1783649146684-source-1783649336030-target
+      source: '1783649146684'
+      sourceHandle: source
+      target: '1783649336030'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: template-transform
+      id: 1783649336030-source-1783649983149-target
+      source: '1783649336030'
+      sourceHandle: source
+      target: '1783649983149'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1783649983149-source-1783651101173-target
+      source: '1783649983149'
+      sourceHandle: source
+      target: '1783651101173'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1783651101173-source-1783651189107-target
+      source: '1783651101173'
+      sourceHandle: source
+      target: '1783651189107'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1783651101173-source-1783651531610-target
+      source: '1783651101173'
+      sourceHandle: source
+      target: '1783651531610'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1783651101173-source-1783651600059-target
+      source: '1783651101173'
+      sourceHandle: source
+      target: '1783651600059'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1783651189107-source-1783651789365-target
+      source: '1783651189107'
+      sourceHandle: source
+      target: '1783651789365'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1783651531610-source-17836518200510-target
+      source: '1783651531610'
+      sourceHandle: source
+      target: '17836518200510'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1783651600059-source-17836518204470-target
+      source: '1783651600059'
+      sourceHandle: source
+      target: '17836518204470'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1783651789365-source-1783651884812-target
+      source: '1783651789365'
+      sourceHandle: source
+      target: '1783651884812'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 17836518200510-source-1783651884812-target
+      source: '17836518200510'
+      sourceHandle: source
+      target: '1783651884812'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 17836518204470-source-1783651884812-target
+      source: '17836518204470'
+      sourceHandle: source
+      target: '1783651884812'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: end
+      id: 1783651884812-source-1783651948217-target
+      source: '1783651884812'
+      sourceHandle: source
+      target: '1783651948217'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          default: ''
+          hide: false
+          hint: ''
+          label: 教案
+          options: []
+          placeholder: ''
+          required: true
+          type: file
+          variable: teachingplan
+        - default: ''
+          hint: ''
+          label: 选择题
+          max_length: 48
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: question_xz
+        - default: ''
+          hint: ''
+          label: 填空题
+          max_length: 48
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: question_tk
+        - default: ''
+          hint: ''
+          label: 简答题
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: question_jd
+      height: 186
+      id: '1783648450700'
+      position:
+        x: 79
+        y: 281
+      positionAbsolute:
+        x: 79
+        y: 281
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        is_array_file: false
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1783648450700'
+        - teachingplan
+      height: 103
+      id: '1783649108712'
+      position:
+        x: 406
+        y: 308
+      positionAbsolute:
+        x: 406
+        y: 308
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 生成试卷名称
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 70c6cb84-19e6-4326-90b4-f41503449b7d
+          role: system
+          text: '创建一个简短且围绕文档主题的考试试卷名称，不超过 20 字。请根据{{#1783649108712.text#}}的内容提炼核心主题，并用简洁有力的语言表达出来。
+
+            步骤说明：
+
+            分析输入文本，找出主要关键词或核心主题。
+
+            基于这些关键词，构造一个简短且具有代表性的试卷名称。
+
+            确保名称在 20 字以内，并且能够准确反映文档的主题。'
+        selected: false
+        title: 生成试卷名称
+        type: llm
+        vision:
+          enabled: false
+      height: 115
+      id: '1783649146684'
+      position:
+        x: 739
+        y: 313
+      positionAbsolute:
+        x: 739
+        y: 313
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        is_team_authorization: false
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Document title, only supports plain text content.
+            ja_JP: Document title, only supports plain text content.
+            pt_BR: Document title, only supports plain text content.
+            zh_Hans: 文档标题，只支持纯文本内容。
+          label:
+            en_US: Document title
+            ja_JP: Document title
+            pt_BR: Document title
+            zh_Hans: 文档标题
+          llm_description: 文档标题，只支持纯文本内容，可以为空。
+          max: null
+          min: null
+          name: title
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Document content, supports markdown syntax, can be empty.
+            ja_JP: Document content, supports markdown syntax, can be empty.
+            pt_BR: Document content, supports markdown syntax, can be empty.
+            zh_Hans: 文档内容，支持 markdown 语法，可以为空。
+          label:
+            en_US: Document content
+            ja_JP: Document content
+            pt_BR: Document content
+            zh_Hans: 文档内容
+          llm_description: 文档内容，支持 markdown 语法，可以为空。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 'The token of the folder where the document is located. If it is
+              not passed or is empty, it means the root directory. For Example: https://svi136aogf123.feishu.cn/drive/folder/JgR9fiG9AlPt8EdsSNpcGjIInbf
+
+              '
+            ja_JP: 'The token of the folder where the document is located. If it is
+              not passed or is empty, it means the root directory. For Example: https://svi136aogf123.feishu.cn/drive/folder/JgR9fiG9AlPt8EdsSNpcGjIInbf
+
+              '
+            pt_BR: 'The token of the folder where the document is located. If it is
+              not passed or is empty, it means the root directory. For Example: https://svi136aogf123.feishu.cn/drive/folder/JgR9fiG9AlPt8EdsSNpcGjIInbf
+
+              '
+            zh_Hans: 文档所在文件夹的 Token，不传或传空表示根目录。例如：https://svi136aogf123.feishu.cn/drive/folder/JgR9fiG9AlPt8EdsSNpcGjIInbf。
+          label:
+            en_US: folder_token
+            ja_JP: folder_token
+            pt_BR: folder_token
+            zh_Hans: 文档所在文件夹的 Token
+          llm_description: 文档所在文件夹的 Token，不传或传空表示根目录。例如：https://svi136aogf123.feishu.cn/drive/folder/JgR9fiG9AlPt8EdsSNpcGjIInbf。
+          max: null
+          min: null
+          name: folder_token
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          folder_token: ''
+          title: ''
+        plugin_id: langgenius/feishu_document
+        plugin_unique_identifier: langgenius/feishu_document:0.0.7@9abfd1528253fdaf515edddfd9b31a9ef0720910be936c495a74f764f0da59cd
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=3e2dc6c1-025d-4c4f-910a-b6a739ac73b6&filename=6ba0989bfb8e757355f7dae5f511c8d1ca34be80733914fa0ef37a914e5c14fa.svg
+        provider_id: langgenius/feishu_document/feishu_document
+        provider_name: langgenius/feishu_document/feishu_document
+        provider_show_name: 飞书云文档
+        provider_type: builtin
+        selected: false
+        title: 创建飞书文档
+        tool_configurations: {}
+        tool_description: 创建飞书文档，支持创建空文档和带内容的文档，支持 markdown 语法创建。应用需要开启机器人能力(https://open.feishu.cn/document/faq/trouble-shooting/how-to-enable-bot-ability)。
+        tool_label: 创建飞书文档
+        tool_name: create_document
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: 出题老师：浮青映白
+          folder_token:
+            type: mixed
+            value: null
+          title:
+            type: mixed
+            value: '{{#1783649146684.text#}}'
+        type: tool
+      height: 51
+      id: '1783649336030'
+      position:
+        x: 1006
+        y: 270
+      positionAbsolute:
+        x: 1006
+        y: 270
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        desc: 获取飞书标识符
+        selected: false
+        template: '{{ arg1 }}'
+        title: 模板转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1783649336030'
+          - json
+          value_type: array[object]
+          variable: arg1
+      height: 79
+      id: '1783649983149'
+      position:
+        x: 1330
+        y: 290
+      positionAbsolute:
+        x: 1330
+        y: 290
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1783649983149'
+          - output
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: e0900b60-5998-4c56-aa33-ee003fb554e7
+          role: system
+          text: 提取{{#1783649983149.output#}}的 URL 部分的内容，只输出 http 地址，只输出 http 结果，不输出
+            Json 格式，存字符串。
+        selected: false
+        title: 提取飞书标识符
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1783651101173'
+      position:
+        x: 1595
+        y: 98
+      positionAbsolute:
+        x: 1595
+        y: 98
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1783648450700'
+          - question_xz
+        desc: 生成选择题
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-pro
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 7e5eca8b-a7af-443a-a9b6-15c797249d93
+          role: system
+          text: 你是一个考试类的专家，可以为老师生成质量高的试卷内容，并且能按要求输出，题目数量为{{#1783648450700.question_xz#}}
+        - id: b88d2f97-0d20-4479-bdd4-6a09e4ca4d4a
+          role: user
+          text: "参考格式：\n\n            一、选择题\n\n            1、题干内容（疑问句或不完整陈述句）\n\n\
+            \            A.选项一内容\n\n            B.选项二内容\n\n            C.选项三内容\n\n\
+            \            D.选项四内容\n\n            示例：\n\n            1、在标准大气压下，冰水混合物的温度是多少摄氏度？\n\
+            \n            A. 0℃\n\n            B. 100℃\n\n            C. -18℃\n\n\
+            \            D. 37℃\n\n \n            2、关于熔点和凝固点的关系，以下说法正确的是：\n\n    \
+            \        A. 同一种晶体的熔点和凝固点相同。\n\n            B. 同一种晶体的熔点和凝固点不同。\n\n    \
+            \        C. 晶体的熔点总是高于其凝固点。\n\n            D. 晶体的熔点总是低于其凝固点。\n\n      \
+            \      ## 严格按照参考格式输出\n\n            ## 内容中不要输出 “好的，以下是根据你提供的文档生成的 XXX\
+            \ 道 XXX 题：”'"
+        selected: false
+        title: 生成选择题
+        type: llm
+        vision:
+          enabled: false
+      height: 115
+      id: '1783651189107'
+      position:
+        x: 1930
+        y: 0
+      positionAbsolute:
+        x: 1930
+        y: 0
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1783648450700'
+          - question_tk
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-pro
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 154c3f17-23b3-4e4e-8f66-157eef3466b0
+          role: system
+          text: 你是一个考试类的专家，可以为老师生成质量高的试卷内容，并且能按要求输出，题目数量为{{#1783648450700.question_tk#}}
+        selected: false
+        title: 生成填空题
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1783651531610'
+      position:
+        x: 1930
+        y: 155
+      positionAbsolute:
+        x: 1930
+        y: 155
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-pro
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 9b084196-d1f8-46d6-994f-eddd947d79c0
+          role: system
+          text: 你是一个考试类的专家，可以为老师生成质量高的试卷内容，并且能按要求输出，题目数量为{{#1783648450700.question_jd#}}
+        selected: false
+        title: 生成简答题
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1783651600059'
+      position:
+        x: 1945
+        y: 326
+      positionAbsolute:
+        x: 1945
+        y: 326
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Unique identifier for a Feishu document. You can also input the
+              document's URL.
+            ja_JP: Unique identifier for a Feishu document. You can also input the
+              document's URL.
+            pt_BR: Unique identifier for a Feishu document. You can also input the
+              document's URL.
+            zh_Hans: 飞书文档的唯一标识，支持输入文档的 URL。
+          label:
+            en_US: document_id
+            ja_JP: document_id
+            pt_BR: document_id
+            zh_Hans: 飞书文档的唯一标识
+          llm_description: 飞书文档的唯一标识，支持输入文档的 URL。
+          max: null
+          min: null
+          name: document_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Plain text or Markdown content. Note that embedded tables in the
+              document should not have merged cells.
+            ja_JP: Plain text or Markdown content. Note that embedded tables in the
+              document should not have merged cells.
+            pt_BR: Plain text or Markdown content. Note that embedded tables in the
+              document should not have merged cells.
+            zh_Hans: 纯文本或 Markdown 内容。注意文档的内嵌套表格不允许有单元格合并。
+          label:
+            en_US: Plain text or Markdown content
+            ja_JP: Plain text or Markdown content
+            pt_BR: Plain text or Markdown content
+            zh_Hans: 纯文本或 Markdown 内容
+          llm_description: 纯文本或 Markdown 内容，注意文档的内嵌套表格不允许有单元格合并。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: end
+          form: form
+          human_description:
+            en_US: Content insertion position, optional values are start, end. 'start'
+              means adding content at the beginning of the document; 'end' means adding
+              content at the end of the document. The default value is end.
+            ja_JP: Content insertion position, optional values are start, end. 'start'
+              means adding content at the beginning of the document; 'end' means adding
+              content at the end of the document. The default value is end.
+            pt_BR: Content insertion position, optional values are start, end. 'start'
+              means adding content at the beginning of the document; 'end' means adding
+              content at the end of the document. The default value is end.
+            zh_Hans: 内容添加位置，可选值有 start、end。start 表示在文档开头添加内容；end 表示在文档结尾添加内容，默认值为
+              end。
+          label:
+            en_US: position
+            ja_JP: position
+            pt_BR: position
+            zh_Hans: 内容添加位置
+          llm_description: 内容添加位置，可选值有 start、end。start 表示在文档开头添加内容；end 表示在文档结尾添加内容，默认值为
+            end。
+          max: null
+          min: null
+          name: position
+          options:
+          - icon: ''
+            label:
+              en_US: document start
+              ja_JP: document start
+              pt_BR: document start
+              zh_Hans: 文档开始
+            value: start
+          - icon: ''
+            label:
+              en_US: document end
+              ja_JP: document end
+              pt_BR: document end
+              zh_Hans: 文档结束
+            value: end
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          content: ''
+          document_id: ''
+          position: ''
+        plugin_id: langgenius/feishu_document
+        plugin_unique_identifier: langgenius/feishu_document:0.0.7@9abfd1528253fdaf515edddfd9b31a9ef0720910be936c495a74f764f0da59cd
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=3e2dc6c1-025d-4c4f-910a-b6a739ac73b6&filename=6ba0989bfb8e757355f7dae5f511c8d1ca34be80733914fa0ef37a914e5c14fa.svg
+        provider_id: langgenius/feishu_document/feishu_document
+        provider_name: langgenius/feishu_document/feishu_document
+        provider_show_name: 飞书云文档
+        provider_type: builtin
+        selected: false
+        title: 在飞书文档中新增内容
+        tool_configurations:
+          position:
+            type: constant
+            value: end
+        tool_description: 在飞书文档中新增内容
+        tool_label: 在飞书文档中新增内容
+        tool_name: write_document
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#1783651189107.text#}}'
+          document_id:
+            type: mixed
+            value: '{{#1783651189107.text#}}'
+        type: tool
+      height: 87
+      id: '1783651789365'
+      position:
+        x: 2246
+        y: 0
+      positionAbsolute:
+        x: 2246
+        y: 0
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Unique identifier for a Feishu document. You can also input the
+              document's URL.
+            ja_JP: Unique identifier for a Feishu document. You can also input the
+              document's URL.
+            pt_BR: Unique identifier for a Feishu document. You can also input the
+              document's URL.
+            zh_Hans: 飞书文档的唯一标识，支持输入文档的 URL。
+          label:
+            en_US: document_id
+            ja_JP: document_id
+            pt_BR: document_id
+            zh_Hans: 飞书文档的唯一标识
+          llm_description: 飞书文档的唯一标识，支持输入文档的 URL。
+          max: null
+          min: null
+          name: document_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Plain text or Markdown content. Note that embedded tables in the
+              document should not have merged cells.
+            ja_JP: Plain text or Markdown content. Note that embedded tables in the
+              document should not have merged cells.
+            pt_BR: Plain text or Markdown content. Note that embedded tables in the
+              document should not have merged cells.
+            zh_Hans: 纯文本或 Markdown 内容。注意文档的内嵌套表格不允许有单元格合并。
+          label:
+            en_US: Plain text or Markdown content
+            ja_JP: Plain text or Markdown content
+            pt_BR: Plain text or Markdown content
+            zh_Hans: 纯文本或 Markdown 内容
+          llm_description: 纯文本或 Markdown 内容，注意文档的内嵌套表格不允许有单元格合并。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: end
+          form: form
+          human_description:
+            en_US: Content insertion position, optional values are start, end. 'start'
+              means adding content at the beginning of the document; 'end' means adding
+              content at the end of the document. The default value is end.
+            ja_JP: Content insertion position, optional values are start, end. 'start'
+              means adding content at the beginning of the document; 'end' means adding
+              content at the end of the document. The default value is end.
+            pt_BR: Content insertion position, optional values are start, end. 'start'
+              means adding content at the beginning of the document; 'end' means adding
+              content at the end of the document. The default value is end.
+            zh_Hans: 内容添加位置，可选值有 start、end。start 表示在文档开头添加内容；end 表示在文档结尾添加内容，默认值为
+              end。
+          label:
+            en_US: position
+            ja_JP: position
+            pt_BR: position
+            zh_Hans: 内容添加位置
+          llm_description: 内容添加位置，可选值有 start、end。start 表示在文档开头添加内容；end 表示在文档结尾添加内容，默认值为
+            end。
+          max: null
+          min: null
+          name: position
+          options:
+          - icon: ''
+            label:
+              en_US: document start
+              ja_JP: document start
+              pt_BR: document start
+              zh_Hans: 文档开始
+            value: start
+          - icon: ''
+            label:
+              en_US: document end
+              ja_JP: document end
+              pt_BR: document end
+              zh_Hans: 文档结束
+            value: end
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          content: ''
+          document_id: ''
+          position: ''
+        plugin_id: langgenius/feishu_document
+        plugin_unique_identifier: langgenius/feishu_document:0.0.7@9abfd1528253fdaf515edddfd9b31a9ef0720910be936c495a74f764f0da59cd
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=3e2dc6c1-025d-4c4f-910a-b6a739ac73b6&filename=6ba0989bfb8e757355f7dae5f511c8d1ca34be80733914fa0ef37a914e5c14fa.svg
+        provider_id: langgenius/feishu_document/feishu_document
+        provider_name: langgenius/feishu_document/feishu_document
+        provider_show_name: 飞书云文档
+        provider_type: builtin
+        selected: false
+        title: 在飞书文档中新增内容 (1)
+        tool_configurations:
+          position:
+            type: constant
+            value: end
+        tool_description: 在飞书文档中新增内容
+        tool_label: 在飞书文档中新增内容
+        tool_name: write_document
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#1783651531610.text#}}'
+          document_id:
+            type: mixed
+            value: '{{#1783651101173.text#}}'
+        type: tool
+      height: 87
+      id: '17836518200510'
+      position:
+        x: 2278
+        y: 155
+      positionAbsolute:
+        x: 2278
+        y: 155
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Unique identifier for a Feishu document. You can also input the
+              document's URL.
+            ja_JP: Unique identifier for a Feishu document. You can also input the
+              document's URL.
+            pt_BR: Unique identifier for a Feishu document. You can also input the
+              document's URL.
+            zh_Hans: 飞书文档的唯一标识，支持输入文档的 URL。
+          label:
+            en_US: document_id
+            ja_JP: document_id
+            pt_BR: document_id
+            zh_Hans: 飞书文档的唯一标识
+          llm_description: 飞书文档的唯一标识，支持输入文档的 URL。
+          max: null
+          min: null
+          name: document_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Plain text or Markdown content. Note that embedded tables in the
+              document should not have merged cells.
+            ja_JP: Plain text or Markdown content. Note that embedded tables in the
+              document should not have merged cells.
+            pt_BR: Plain text or Markdown content. Note that embedded tables in the
+              document should not have merged cells.
+            zh_Hans: 纯文本或 Markdown 内容。注意文档的内嵌套表格不允许有单元格合并。
+          label:
+            en_US: Plain text or Markdown content
+            ja_JP: Plain text or Markdown content
+            pt_BR: Plain text or Markdown content
+            zh_Hans: 纯文本或 Markdown 内容
+          llm_description: 纯文本或 Markdown 内容，注意文档的内嵌套表格不允许有单元格合并。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: end
+          form: form
+          human_description:
+            en_US: Content insertion position, optional values are start, end. 'start'
+              means adding content at the beginning of the document; 'end' means adding
+              content at the end of the document. The default value is end.
+            ja_JP: Content insertion position, optional values are start, end. 'start'
+              means adding content at the beginning of the document; 'end' means adding
+              content at the end of the document. The default value is end.
+            pt_BR: Content insertion position, optional values are start, end. 'start'
+              means adding content at the beginning of the document; 'end' means adding
+              content at the end of the document. The default value is end.
+            zh_Hans: 内容添加位置，可选值有 start、end。start 表示在文档开头添加内容；end 表示在文档结尾添加内容，默认值为
+              end。
+          label:
+            en_US: position
+            ja_JP: position
+            pt_BR: position
+            zh_Hans: 内容添加位置
+          llm_description: 内容添加位置，可选值有 start、end。start 表示在文档开头添加内容；end 表示在文档结尾添加内容，默认值为
+            end。
+          max: null
+          min: null
+          name: position
+          options:
+          - icon: ''
+            label:
+              en_US: document start
+              ja_JP: document start
+              pt_BR: document start
+              zh_Hans: 文档开始
+            value: start
+          - icon: ''
+            label:
+              en_US: document end
+              ja_JP: document end
+              pt_BR: document end
+              zh_Hans: 文档结束
+            value: end
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          content: ''
+          document_id: ''
+          position: ''
+        plugin_id: langgenius/feishu_document
+        plugin_unique_identifier: langgenius/feishu_document:0.0.7@9abfd1528253fdaf515edddfd9b31a9ef0720910be936c495a74f764f0da59cd
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=3e2dc6c1-025d-4c4f-910a-b6a739ac73b6&filename=6ba0989bfb8e757355f7dae5f511c8d1ca34be80733914fa0ef37a914e5c14fa.svg
+        provider_id: langgenius/feishu_document/feishu_document
+        provider_name: langgenius/feishu_document/feishu_document
+        provider_show_name: 飞书云文档
+        provider_type: builtin
+        selected: false
+        title: 在飞书文档中新增内容 (2)
+        tool_configurations:
+          position:
+            type: constant
+            value: end
+        tool_description: 在飞书文档中新增内容
+        tool_label: 在飞书文档中新增内容
+        tool_name: write_document
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#1783651600059.text#}}'
+          document_id:
+            type: mixed
+            value: '{{#1783651101173.text#}}'
+        type: tool
+      height: 87
+      id: '17836518204470'
+      position:
+        x: 2303
+        y: 326
+      positionAbsolute:
+        x: 2303
+        y: 326
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Unique identifier for a Feishu document. You can also input the
+              document's URL.
+            ja_JP: Unique identifier for a Feishu document. You can also input the
+              document's URL.
+            pt_BR: Unique identifier for a Feishu document. You can also input the
+              document's URL.
+            zh_Hans: 飞书文档的唯一标识，支持输入文档的 URL。
+          label:
+            en_US: document_id
+            ja_JP: document_id
+            pt_BR: document_id
+            zh_Hans: 飞书文档的唯一标识
+          llm_description: 飞书文档的唯一标识，支持输入文档的 URL。
+          max: null
+          min: null
+          name: document_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: markdown
+          form: form
+          human_description:
+            en_US: Format of the document return, optional values are text, markdown,
+              can be empty, default is markdown.
+            ja_JP: Format of the document return, optional values are text, markdown,
+              can be empty, default is markdown.
+            pt_BR: Format of the document return, optional values are text, markdown,
+              can be empty, default is markdown.
+            zh_Hans: 文档返回格式，可选值有 text、markdown，可以为空，默认值为 markdown。
+          label:
+            en_US: mode
+            ja_JP: mode
+            pt_BR: mode
+            zh_Hans: 文档返回格式
+          llm_description: 文档返回格式，可选值有 text、markdown，可以为空，默认值为 markdown。
+          max: null
+          min: null
+          name: mode
+          options:
+          - icon: ''
+            label:
+              en_US: text
+              ja_JP: text
+              pt_BR: text
+              zh_Hans: text
+            value: text
+          - icon: ''
+            label:
+              en_US: markdown
+              ja_JP: markdown
+              pt_BR: markdown
+              zh_Hans: markdown
+            value: markdown
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: '0'
+          form: form
+          human_description:
+            en_US: 'Specifies the language for MentionUser, optional values are [0,
+              1]. 0: User''s default name, 1: User''s English name, default is 0.
+
+              '
+            ja_JP: 'Specifies the language for MentionUser, optional values are [0,
+              1]. 0: User''s default name, 1: User''s English name, default is 0.
+
+              '
+            pt_BR: 'Specifies the language for MentionUser, optional values are [0,
+              1]. 0: User''s default name, 1: User''s English name, default is 0.
+
+              '
+            zh_Hans: '指定返回的 MentionUser，即@用户的语言，可选值有 [0,1]。0: 该用户的默认名称，1: 该用户的英文名称，默认值为
+              0。
+
+              '
+          label:
+            en_US: lang
+            ja_JP: lang
+            pt_BR: lang
+            zh_Hans: 指定@用户的语言
+          llm_description: '指定返回的 MentionUser，即@用户的语言，可选值有 [0,1]。0: 该用户的默认名称，1: 该用户的英文名称，默认值为
+            0。
+
+            '
+          max: null
+          min: null
+          name: lang
+          options:
+          - icon: ''
+            label:
+              en_US: User's default name
+              ja_JP: User's default name
+              pt_BR: User's default name
+              zh_Hans: 用户的默认名称
+            value: '0'
+          - icon: ''
+            label:
+              en_US: User's English name
+              ja_JP: User's English name
+              pt_BR: User's English name
+              zh_Hans: 用户的英文名称
+            value: '1'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          document_id: ''
+          lang: ''
+          mode: ''
+        plugin_id: langgenius/feishu_document
+        plugin_unique_identifier: langgenius/feishu_document:0.0.7@9abfd1528253fdaf515edddfd9b31a9ef0720910be936c495a74f764f0da59cd
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=3e2dc6c1-025d-4c4f-910a-b6a739ac73b6&filename=6ba0989bfb8e757355f7dae5f511c8d1ca34be80733914fa0ef37a914e5c14fa.svg
+        provider_id: langgenius/feishu_document/feishu_document
+        provider_name: langgenius/feishu_document/feishu_document
+        provider_show_name: 飞书云文档
+        provider_type: builtin
+        selected: false
+        title: 获取飞书云文档的内容
+        tool_configurations:
+          lang:
+            type: constant
+            value: '0'
+          mode:
+            type: constant
+            value: text
+        tool_description: 获取飞书云文档的内容
+        tool_label: 获取飞书云文档的内容
+        tool_name: get_document_content
+        tool_node_version: '2'
+        tool_parameters:
+          document_id:
+            type: mixed
+            value: '{{#1783651101173.text#}}'
+        type: tool
+      height: 113
+      id: '1783651884812'
+      position:
+        x: 2672
+        y: 108
+      positionAbsolute:
+        x: 2672
+        y: 108
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        outputs:
+        - value_selector:
+          - '1783651884812'
+          - text
+          value_type: string
+          variable: output
+        - value_selector:
+          - '1783651101173'
+          - text
+          value_type: string
+          variable: text
+        - value_selector:
+          - '1783651884812'
+          - files
+          value_type: array[file]
+          variable: output_1
+        - value_selector:
+          - '1783649146684'
+          - text
+          value_type: string
+          variable: output_2
+        selected: false
+        title: 输出
+        type: end
+      height: 167
+      id: '1783651948217'
+      position:
+        x: 2975
+        y: 108
+      positionAbsolute:
+        x: 2975
+        y: 108
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    viewport:
+      x: -1048
+      y: 260
+      zoom: 1
+  rag_pipeline_variables: []

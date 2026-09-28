@@ -1,0 +1,144 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: agent-chat
+  name: 竞品情报自动分析助手
+  use_icon_as_answer_icon: false
+dependencies: []
+kind: app
+model_config:
+  agent_mode:
+    enabled: true
+    max_iteration: 10
+    prompt: null
+    strategy: function_call
+    tools: []
+  annotation_reply:
+    enabled: false
+  chat_prompt_config:
+    prompt:
+    - role: system
+      text: ''
+  completion_prompt_config:
+    conversation_histories_role:
+      assistant_prefix: ''
+      user_prefix: ''
+    prompt:
+      text: ''
+  dataset_configs:
+    datasets:
+      datasets: []
+    retrieval_model: multiple
+    top_k: 4
+  dataset_query_variable: ''
+  external_data_tools: []
+  file_upload:
+    allowed_file_extensions:
+    - .JPG
+    - .JPEG
+    - .PNG
+    - .GIF
+    - .WEBP
+    - .SVG
+    - .MP4
+    - .MOV
+    - .MPEG
+    - .WEBM
+    allowed_file_types: []
+    allowed_file_upload_methods:
+    - remote_url
+    - local_file
+    enabled: false
+    image:
+      detail: high
+      enabled: false
+      number_limits: 3
+      transfer_methods:
+      - remote_url
+      - local_file
+    number_limits: 3
+  model:
+    completion_params:
+      stop: []
+    mode: chat
+    name: gpt-4o-mini
+    provider: langgenius/openai/openai
+  more_like_this:
+    enabled: false
+  opening_statement: ''
+  pre_prompt: '# Role
+
+    你是一位拥有10年经验的教育行业资深市场分析专家，专门负责“小学网课”赛道的竞品情报拆解与策略分析。
+
+
+    # Objective
+
+    根据用户提供的竞品名称、截图内容或网页信息，进行全方位的深度剖析，输出一份专业的情报分析报告，帮助团队制定应对策略。
+
+
+    # Analysis Dimensions
+
+    请从以下五个核心维度进行拆解：
+
+    1. **产品与课程体系**：包含覆盖年级（小低/小高）、核心科目、教学模式（AI互动、真人直播、双师）、课程大纲特点。
+
+    2. **价格与促销策略**：引流课价格（如0.1元/9.9元）、系统课价格、买赠政策（如买课送学习机、送纸质教材）。
+
+    3. **营销痛点触达**：该产品主要解决家长的什么焦虑？（如：英语听力不行、数学思维逻辑差、家长没时间辅导）。
+
+    4. **师资与背书**：名师背景、清北名校率、教研团队宣传重点。
+
+    5. **用户口碑分析**：搜集并总结真实的家长反馈（优点与槽点）。
+
+
+    # Workflow
+
+    - **Step 1**: 提取用户输入信息中的关键数据点。
+
+    - **Step 2**: 如果开启了搜索工具，自动检索该竞品最近一个月的营销活动和最新定价。
+
+    - **Step 3**: 对比当前主流产品（如学而思、作业帮、小猿学练机等）的差异化。
+
+    - **Step 4**: 给出针对性的“反击”或“学习”建议。
+
+
+    # Output Format
+
+    请使用清晰的 Markdown 表格和多级标题进行回复，确保逻辑清晰，重点突出。'
+  prompt_type: simple
+  retriever_resource:
+    enabled: true
+  sensitive_word_avoidance:
+    config: {}
+    enabled: false
+    type: ''
+  speech_to_text:
+    enabled: false
+  suggested_questions: []
+  suggested_questions_after_answer:
+    enabled: false
+  text_to_speech:
+    enabled: false
+    language: ''
+    voice: ''
+  user_input_form:
+  - paragraph:
+      default: ''
+      label: 竞品名称
+      required: true
+      variable: competitor_name
+  - select:
+      default: ''
+      label: ' 目标年级 '
+      options:
+      - 一年级
+      - 二年级
+      - 三年级
+      - 四年级
+      - 五年级
+      - 六年级
+      required: true
+      variable: target_grade
+version: 0.7.0
